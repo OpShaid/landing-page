@@ -11,26 +11,29 @@ import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import LoadingScreen from '@/components/LoadingScreen'
 import PageTransition from '@/components/PageTransition'
+import { TransitionProvider } from '@/components/TransitionOverlay'
 
 export default function Home() {
   return (
     <>
       <LoadingScreen />
-      <PageTransition>
-        <main className="min-h-screen">
-          <Navbar />
-          <Hero />
-          <Stats />
-          <ClientLogos />
-          <Features />
-          <Testimonials />
-          <CTABanner />
-          <Pricing />
-          <FAQ />
-          <ContactForm />
-          <Footer />
-        </main>
-      </PageTransition>
+      <TransitionProvider>
+        <PageTransition>
+          <main className="min-h-screen">
+            <Navbar />
+            <Hero />
+            <Stats />
+            <ClientLogos />
+            <Features />
+            <Testimonials />
+            <CTABanner />
+            <Pricing />
+            <FAQ />
+            <ContactForm />
+            <Footer />
+          </main>
+        </PageTransition>
+      </TransitionProvider>
     </>
   )
 }

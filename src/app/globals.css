@@ -128,60 +128,102 @@ body {
 }
 
 /* CapCut-style video editing effects */
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
+@keyframes shake-zoom {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  5% {
+    transform: translate(-8px, 4px) scale(1.02);
   }
   10% {
-    transform: translateX(-3px) translateY(2px);
+    transform: translate(8px, -4px) scale(1.04);
+  }
+  15% {
+    transform: translate(-8px, 4px) scale(1.06);
   }
   20% {
-    transform: translateX(3px) translateY(-2px);
+    transform: translate(8px, -4px) scale(1.08);
+  }
+  25% {
+    transform: translate(-6px, 3px) scale(1.1);
   }
   30% {
-    transform: translateX(-3px) translateY(2px);
+    transform: translate(6px, -3px) scale(1.12);
+  }
+  35% {
+    transform: translate(-6px, 3px) scale(1.14);
   }
   40% {
-    transform: translateX(3px) translateY(-2px);
+    transform: translate(6px, -3px) scale(1.16);
+  }
+  45% {
+    transform: translate(-4px, 2px) scale(1.18);
   }
   50% {
-    transform: translateX(-2px) translateY(1px);
+    transform: translate(4px, -2px) scale(1.2);
+  }
+  55% {
+    transform: translate(-4px, 2px) scale(1.22);
   }
   60% {
-    transform: translateX(2px) translateY(-1px);
+    transform: translate(4px, -2px) scale(1.24);
+  }
+  65% {
+    transform: translate(-3px, 1px) scale(1.26);
   }
   70% {
-    transform: translateX(-2px) translateY(1px);
+    transform: translate(3px, -1px) scale(1.28);
+  }
+  75% {
+    transform: translate(-2px, 1px) scale(1.3);
   }
   80% {
-    transform: translateX(2px) translateY(-1px);
+    transform: translate(2px, -1px) scale(1.32);
+  }
+  85% {
+    transform: translate(-1px, 0) scale(1.34);
   }
   90% {
-    transform: translateX(-1px) translateY(0);
+    transform: translate(1px, 0) scale(1.36);
   }
-}
-
-@keyframes zoom-flash {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
+  95% {
+    transform: translate(0, 0) scale(1.38);
   }
   100% {
-    opacity: 0;
-    transform: scale(1.2);
+    transform: translate(0, 0) scale(1.4);
   }
 }
 
-.animate-shake {
-  animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+@keyframes fade-to-black {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.animate-zoom-flash {
-  animation: zoom-flash 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+@keyframes fade-in-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-shake-zoom {
+  animation: shake-zoom 1.2s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.animate-fade-black {
+  animation: fade-to-black 0.4s ease-in forwards;
+}
+
+.animate-fade-reveal {
+  animation: fade-in-reveal 0.8s ease-out forwards;
 }
 
 /* Animation classes */
