@@ -76,13 +76,13 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-bold px-4 py-2 rounded-full">
+            <span className="bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm font-bold px-4 py-2 rounded-full">
               PRICING
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
             Simple, Transparent
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               Pricing That Scales
             </span>
           </h2>
@@ -97,7 +97,7 @@ export default function Pricing() {
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className="relative w-16 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-300 focus:outline-none shadow-lg"
+              className="relative w-16 h-8 bg-gradient-to-r from-gray-900 to-gray-700 rounded-full transition-all duration-300 focus:outline-none shadow-lg"
             >
               <div
                 className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow-md ${
@@ -127,7 +127,7 @@ export default function Pricing() {
               <div className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} opacity-0 hover:opacity-5 transition-opacity duration-500`}></div>
 
               {plan.highlighted && (
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold py-2 px-6 rounded-bl-2xl rounded-tr-2xl shadow-lg">
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-xs font-bold py-2 px-6 rounded-bl-2xl rounded-tr-2xl shadow-lg">
                   MOST POPULAR
                 </div>
               )}
@@ -177,7 +177,7 @@ export default function Pricing() {
                   onClick={scrollToContact}
                   className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
                     plan.highlighted
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                      ? 'bg-gradient-to-r from-gray-900 to-gray-700 text-white'
                       : 'bg-gray-900 text-white hover:bg-gray-800'
                   }`}
                 >

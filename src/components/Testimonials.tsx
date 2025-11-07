@@ -80,13 +80,13 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-bold px-4 py-2 rounded-full">
+            <span className="bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm font-bold px-4 py-2 rounded-full">
               TESTIMONIALS
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
             Loved by
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               Thousands of Businesses
             </span>
           </h2>
@@ -143,7 +143,7 @@ export default function Testimonials() {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeIndex ? 'w-8 bg-gradient-to-r from-blue-600 to-purple-600' : 'w-2 bg-gray-300'
+                    index === activeIndex ? 'w-8 bg-gradient-to-r from-gray-900 to-gray-700' : 'w-2 bg-gray-300'
                   }`}
                 />
               ))}

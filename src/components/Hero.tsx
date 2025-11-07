@@ -9,7 +9,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 text-white px-4">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
@@ -27,7 +27,7 @@ export default function Hero() {
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slide-up">
           <span className="block">Launch Your</span>
-          <span className="block bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 bg-clip-text text-transparent">
             Business Faster
           </span>
         </h1>

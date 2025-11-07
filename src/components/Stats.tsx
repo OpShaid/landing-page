@@ -57,7 +57,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   }, [isVisible, value])
 
   return (
-    <div ref={ref} className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+    <div ref={ref} className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">
       {count}{suffix}
     </div>
   )

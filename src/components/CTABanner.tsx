@@ -9,7 +9,7 @@ export default function CTABanner() {
   }
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+    <section className="py-20 px-4 bg-gradient-to-r from-gray-900 via-black to-gray-800 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full filter blur-3xl animate-blob"></div>
