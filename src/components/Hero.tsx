@@ -1,49 +1,49 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+  const [isZooming, setIsZooming] = useState(false)
+  const [isShaking, setIsShaking] = useState(false)
+
+  const handleButtonClick = (id: string) => {
+    // Trigger zoom and shake effect
+    setIsZooming(true)
+    setIsShaking(true)
+
+    setTimeout(() => {
+      setIsZooming(false)
+      setIsShaking(false)
+
+      // Scroll to section after animation
+      const element = document.getElementById(id)
+      element?.scrollIntoView({ behavior: 'smooth' })
+    }, 600)
   }
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
-      </div>
+      {/* Simple gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20"></div>
 
-      <div className="relative max-w-6xl mx-auto text-center z-10 pt-20">
+      {/* Transition overlay for zoom effect */}
+      {isZooming && (
+        <div className="fixed inset-0 z-50 bg-black animate-zoom-flash pointer-events-none" />
+      )}
+
+      <div className={`relative max-w-6xl mx-auto text-center z-10 pt-20 transition-transform duration-500 ${isShaking ? 'animate-shake' : ''}`}>
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8 animate-fade-in border border-white/20">
           <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
           <span className="text-sm font-medium">Trusted by 10,000+ businesses worldwide</span>
         </div>
 
-        {/* Main Heading with Cinematic Effects */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slide-up relative">
-          <span className="block" style={{
-            animation: 'pulseGlow 3s ease-in-out infinite, chromatic 2s ease-in-out infinite',
-          }}>
-            Launch Your
-          </span>
-          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent"
-            style={{
-              animation: 'pulseGlow 3s ease-in-out infinite 0.5s, chromatic 2s ease-in-out infinite 0.5s',
-            }}>
+        {/* Main Heading - Clean version */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slide-up">
+          <span className="block">Launch Your</span>
+          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
             Business Faster
           </span>
-          {/* Lens flare effect */}
-          <div
-            className="absolute inset-0 pointer-events-none overflow-hidden"
-            style={{ animation: 'lensFlare 8s ease-in-out infinite' }}
-          >
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30 blur-sm" />
-          </div>
         </h1>
 
         {/* Subheading */}
@@ -55,7 +55,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
           <button
-            onClick={() => scrollToSection('pricing')}
+            onClick={() => handleButtonClick('pricing')}
             className="group relative bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
           >
             <span className="relative z-10 flex items-center justify-center">
@@ -66,7 +66,7 @@ export default function Hero() {
             </span>
           </button>
           <button
-            onClick={() => scrollToSection('features')}
+            onClick={() => handleButtonClick('features')}
             className="group border-2 border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg backdrop-blur-sm bg-white/10 hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105 hover:shadow-2xl"
           >
             <span className="flex items-center justify-center">
