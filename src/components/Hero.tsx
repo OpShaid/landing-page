@@ -24,12 +24,26 @@ export default function Hero() {
           <span className="text-sm font-medium">Trusted by 10,000+ businesses worldwide</span>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slide-up">
-          <span className="block">Launch Your</span>
-          <span className="block bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 bg-clip-text text-transparent">
+        {/* Main Heading with Cinematic Effects */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slide-up relative">
+          <span className="block" style={{
+            animation: 'pulseGlow 3s ease-in-out infinite, chromatic 2s ease-in-out infinite',
+          }}>
+            Launch Your
+          </span>
+          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent"
+            style={{
+              animation: 'pulseGlow 3s ease-in-out infinite 0.5s, chromatic 2s ease-in-out infinite 0.5s',
+            }}>
             Business Faster
           </span>
+          {/* Lens flare effect */}
+          <div
+            className="absolute inset-0 pointer-events-none overflow-hidden"
+            style={{ animation: 'lensFlare 8s ease-in-out infinite' }}
+          >
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30 blur-sm" />
+          </div>
         </h1>
 
         {/* Subheading */}
