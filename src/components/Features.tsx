@@ -1,6 +1,8 @@
 'use client'
 
 import React from 'react'
+import ScrollReveal from './ScrollReveal'
+import FeatureCard from './FeatureCard'
 
 const features = [
   {
@@ -70,30 +72,15 @@ export default function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in overflow-hidden border border-gray-100 hover:border-transparent"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-
-              {/* Icon with gradient background */}
-              <div className={`relative inline-flex items-center justify-center w-16 h-16 mb-6 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                <span className="text-3xl filter drop-shadow-md">{feature.icon}</span>
-              </div>
-
-              <h3 className="relative text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
-                {feature.title}
-              </h3>
-
-              <p className="relative text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
-
-              {/* Animated corner accent */}
-              <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`}></div>
-            </div>
+            <ScrollReveal key={index} delay={index * 100} direction="up">
+              <FeatureCard
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+                gradient={feature.gradient}
+                delay={index * 0.1}
+              />
+            </ScrollReveal>
           ))}
         </div>
 

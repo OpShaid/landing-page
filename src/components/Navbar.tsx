@@ -5,10 +5,16 @@ import React, { useState, useEffect } from 'react'
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+
+      // Calculate scroll progress
+      const windowHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrolled = (window.scrollY / windowHeight) * 100
+      setScrollProgress(scrolled)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -21,13 +27,22 @@ export default function Navbar() {
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-lg py-4'
-          : 'bg-transparent py-6'
-      }`}
-    >
+    <>
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-50">
+        <div
+          className="h-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 transition-all duration-300 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-gray-200/50 py-3'
+            : 'bg-transparent py-6'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -111,7 +126,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3 bg-white rounded-lg shadow-lg p-4 animate-fade-in">
+          <div className="md:hidden mt-4 pb-4 space-y-3 bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 animate-slide-down border border-gray-200/50">
             <button
               onClick={() => scrollToSection('features')}
               className="block w-full text-left text-gray-700 font-medium py-2 hover:text-blue-600 transition-colors"
@@ -146,5 +161,6 @@ export default function Navbar() {
         )}
       </div>
     </nav>
+    </>
   )
 }
